@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="139"
-  DTS:VersionGUID="{1EE008EC-F77A-49BC-8C32-75090BA776CF}">
+  DTS:VersionBuild="141"
+  DTS:VersionGUID="{639A7E64-68DB-4C06-9229-6196495A5C54}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -37,7 +37,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Asus\OneDrive\Desktop\DOCUMENT\Paper\BI\Project\error.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Asus\OneDrive\Desktop\DOCUMENT\Paper\BI\Project\DA\error.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -4364,28 +4364,23 @@ WHERE ProductLineID_NK = (?)</property>
                       name="ProductID" />
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Quantity]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="Quantity" />
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Tax 5%]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="Tax 5%" />
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Total]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="Total" />
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Date]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="date"
                       name="Date" />
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Time]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="date"
                       name="Time" />
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Payment]"
@@ -4394,23 +4389,19 @@ WHERE ProductLineID_NK = (?)</property>
                       name="Payment" />
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[cogs]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="cogs" />
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[gross margin percentage]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="gross margin percentage" />
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[gross income]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="gross income" />
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Rating]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="Rating" />
                   </externalMetadataColumns>
                 </input>
@@ -7236,9 +7227,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7356,9 +7345,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7380,9 +7367,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7404,9 +7389,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7428,9 +7411,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

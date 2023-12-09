@@ -11,45 +11,45 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="117"
-  DTS:VersionGUID="{A6A87F5A-BE8B-44A4-A79D-9C2B9A4C87F1}">
+  DTS:VersionBuild="130"
+  DTS:VersionGUID="{BF1FAC39-B397-4B47-9212-7B88B48DD5CE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ErrorData]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{56238D38-4EAB-46A5-9601-3E216D569000}"
+      DTS:ObjectName="ErrorData">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Asus\OneDrive\Desktop\DOCUMENT\Paper\BI\Project\DA\error.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{D2411257-FFE8-4A5A-99B1-785ED366766E}"
+      DTS:DTSID="{1B4D8154-29D1-4973-9E13-7B1554FD7AAE}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Asus\OneDrive\Desktop\DOCUMENT\Paper\BI\Project\supermarket_sales.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Asus\OneDrive\Desktop\DOCUMENT\Paper\BI\Project\DA\Failed_Package.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{4B034B43-0BB1-41D4-94A8-AA22BA07C1DF}"
+      DTS:DTSID="{D5D207F6-559F-4D00-81D9-67A9851A21E9}"
       DTS:ObjectName="Excel Connection Manager 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Asus\OneDrive\Desktop\DOCUMENT\Paper\BI\Project\error.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 2]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{9B40461A-E447-4A76-9284-6C5F55DB0B42}"
-      DTS:ObjectName="Excel Connection Manager 2">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Asus\OneDrive\Desktop\DOCUMENT\Paper\BI\Project\Failed_Package.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Asus\OneDrive\Desktop\DOCUMENT\Paper\BI\Project\DA\FailPackage.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -76,6 +76,18 @@
           DTS:ConnectionString="Data Source=Localhost;Initial Catalog=DA_STAGE;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{15EF91E6-9AA9-4FD5-B0B3-178D9EA09E1C}Localhost.DA_STAGE;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SouceData]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{C6D29917-5111-4A9D-BDF5-AF9220420170}"
+      DTS:ObjectName="SouceData">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Asus\OneDrive\Desktop\DOCUMENT\Paper\BI\Project\DA\supermarket_sales.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
@@ -87,7 +99,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET from Metadata City"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -103,7 +115,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET from Metadata Product"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -119,7 +131,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET from Metadata ProductLine"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -135,7 +147,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET from Metadata Supermarket"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -157,6 +169,82 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\Import data from data source to City_Stage tabel\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import data from data source to City_Stage tabel\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data from data source to City_Stage tabel\Data Conversion.Inputs[Data Conversion Input].Columns[Branch]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Branch"
+                      lineageId="Package\Import data from data source to City_Stage tabel\Excel Source.Outputs[Excel Source Output].Columns[Branch]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data from data source to City_Stage tabel\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Import data from data source to City_Stage tabel\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data from data source to City_Stage tabel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Branch]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import data from data source to City_Stage tabel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Branch]"
+                      name="Copy of Branch"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import data from data source to City_Stage tabel\Excel Source.Outputs[Excel Source Output].Columns[Branch]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data from data source to City_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Import data from data source to City_Stage tabel\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data from data source to City_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data from data source to City_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data from data source to City_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data from data source to City_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Import data from data source to City_Stage tabel\Excel Destination"
               componentClassID="Microsoft.ExcelDestination"
@@ -207,8 +295,8 @@
               <connections>
                 <connection
                   refId="Package\Import data from data source to City_Stage tabel\Excel Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerID="Package.ConnectionManagers[ErrorData]"
+                  connectionManagerRefId="Package.ConnectionManagers[ErrorData]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -318,8 +406,8 @@
               <connections>
                 <connection
                   refId="Package\Import data from data source to City_Stage tabel\Excel Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[SouceData]"
+                  connectionManagerRefId="Package.ConnectionManagers[SouceData]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -527,13 +615,18 @@
           </components>
           <paths>
             <path
+              refId="Package\Import data from data source to City_Stage tabel.Paths[Data Conversion Output]"
+              endId="Package\Import data from data source to City_Stage tabel\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Import data from data source to City_Stage tabel\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
               refId="Package\Import data from data source to City_Stage tabel.Paths[Excel Source Error Output]"
               endId="Package\Import data from data source to City_Stage tabel\Excel Destination.Inputs[Excel Destination Input]"
               name="Excel Source Error Output"
               startId="Package\Import data from data source to City_Stage tabel\Excel Source.Outputs[Excel Source Error Output]" />
             <path
               refId="Package\Import data from data source to City_Stage tabel.Paths[Excel Source Output]"
-              endId="Package\Import data from data source to City_Stage tabel\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Import data from data source to City_Stage tabel\Data Conversion.Inputs[Data Conversion Input]"
               name="Excel Source Output"
               startId="Package\Import data from data source to City_Stage tabel\Excel Source.Outputs[Excel Source Output]" />
           </paths>
@@ -673,8 +766,8 @@
               <connections>
                 <connection
                   refId="Package\Import data from data source to ProductLine_Stage tabel\Excel Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[SouceData]"
+                  connectionManagerRefId="Package.ConnectionManagers[SouceData]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -910,6 +1003,81 @@
           version="1">
           <components>
             <component
+              refId="Package\Import data from data source to Product_Stage tabel\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Inputs[Data Conversion Input].Columns[Unit price]"
+                      cachedDataType="r8"
+                      cachedName="Unit price"
+                      lineageId="Package\Import data from data source to Product_Stage tabel\Excel Source.Outputs[Excel Source Output].Columns[Unit price]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Unit price]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Unit price]"
+                      name="Copy of Unit price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import data from data source to Product_Stage tabel\Excel Source.Outputs[Excel Source Output].Columns[Unit price]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Import data from data source to Product_Stage tabel\Excel Source"
               componentClassID="Microsoft.ExcelSource"
               contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -952,8 +1120,8 @@
               <connections>
                 <connection
                   refId="Package\Import data from data source to Product_Stage tabel\Excel Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[SouceData]"
+                  connectionManagerRefId="Package.ConnectionManagers[SouceData]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1189,8 +1357,13 @@
           </components>
           <paths>
             <path
-              refId="Package\Import data from data source to Product_Stage tabel.Paths[Excel Source Output]"
+              refId="Package\Import data from data source to Product_Stage tabel.Paths[Data Conversion Output]"
               endId="Package\Import data from data source to Product_Stage tabel\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Import data from data source to Product_Stage tabel.Paths[Excel Source Output]"
+              endId="Package\Import data from data source to Product_Stage tabel\Data Conversion.Inputs[Data Conversion Input]"
               name="Excel Source Output"
               startId="Package\Import data from data source to Product_Stage tabel\Excel Source.Outputs[Excel Source Output]" />
           </paths>
@@ -1322,6 +1495,83 @@
                       refId="Package\Import data from data source to Supermarket_Stage tabel\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Import data from data source to Supermarket_Stage tabel\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Inputs[Data Conversion Input].Columns[ProductID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ProductID"
+                      lineageId="Package\Import data from data source to Supermarket_Stage tabel\Union All.Outputs[Union All Output 1].Columns[ProductID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductID]"
+                      name="Copy of ProductID"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import data from data source to Supermarket_Stage tabel\Union All.Outputs[Union All Output 1].Columns[ProductID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1604,8 +1854,8 @@
               <connections>
                 <connection
                   refId="Package\Import data from data source to Supermarket_Stage tabel\Excel Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[SouceData]"
+                  connectionManagerRefId="Package.ConnectionManagers[SouceData]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3001,6 +3251,11 @@
               name="Case 2"
               startId="Package\Import data from data source to Supermarket_Stage tabel\Conditional Split.Outputs[Case 2]" />
             <path
+              refId="Package\Import data from data source to Supermarket_Stage tabel.Paths[Data Conversion Output]"
+              endId="Package\Import data from data source to Supermarket_Stage tabel\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
               refId="Package\Import data from data source to Supermarket_Stage tabel.Paths[Derived Column Output]"
               endId="Package\Import data from data source to Supermarket_Stage tabel\Conditional Split.Inputs[Conditional Split Input]"
               name="Derived Column Output"
@@ -3027,7 +3282,7 @@
               startId="Package\Import data from data source to Supermarket_Stage tabel\Conditional Split.Outputs[Split Gender]" />
             <path
               refId="Package\Import data from data source to Supermarket_Stage tabel.Paths[Union All Output 1]"
-              endId="Package\Import data from data source to Supermarket_Stage tabel\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion.Inputs[Data Conversion Input]"
               name="Union All Output 1"
               startId="Package\Import data from data source to Supermarket_Stage tabel\Union All.Outputs[Union All Output 1]" />
           </paths>
@@ -3035,13 +3290,13 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Load Fail Package Productline"
+      DTS:refId="Package\Load Fail Package Product"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{5F3117E6-C01F-4D3A-B573-7C91A9C1CCAD}"
+      DTS:DTSID="{95eee952-7910-4c5c-814d-9fce770499db}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Load Fail Package Productline"
+      DTS:ObjectName="Load Fail Package Product"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -3049,7 +3304,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Load Fail Package Productline\Data Conversion"
+              refId="Package\Load Fail Package Product\Data Conversion"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
@@ -3057,36 +3312,36 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Load Fail Package Productline\Data Conversion.Inputs[Data Conversion Input]"
+                  refId="Package\Load Fail Package Product\Data Conversion.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Fail Package Productline\Data Conversion.Inputs[Data Conversion Input].Columns[CET]"
+                      refId="Package\Load Fail Package Product\Data Conversion.Inputs[Data Conversion Input].Columns[CET]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CET"
-                      lineageId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].Columns[CET]" />
+                      lineageId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[CET]" />
                     <inputColumn
-                      refId="Package\Load Fail Package Productline\Data Conversion.Inputs[Data Conversion Input].Columns[ID]"
+                      refId="Package\Load Fail Package Product\Data Conversion.Inputs[Data Conversion Input].Columns[ID]"
                       cachedDataType="i4"
                       cachedName="ID"
-                      lineageId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]" />
+                      lineageId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Fail Package Productline\Data Conversion.Outputs[Data Conversion Output]"
+                  refId="Package\Load Fail Package Product\Data Conversion.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\Load Fail Package Productline\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Load Fail Package Product\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\Data Conversion.Outputs[Data Conversion Output].Columns[CET FIX]"
+                      refId="Package\Load Fail Package Product\Data Conversion.Outputs[Data Conversion Output].Columns[CET FIX]"
                       dataType="date"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Load Fail Package Productline\Data Conversion.Outputs[Data Conversion Output].Columns[CET FIX]"
+                      lineageId="Package\Load Fail Package Product\Data Conversion.Outputs[Data Conversion Output].Columns[CET FIX]"
                       name="CET FIX"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -3094,7 +3349,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].Columns[CET]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[CET]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -3102,11 +3357,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ID]"
+                      refId="Package\Load Fail Package Product\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ID]"
                       dataType="ui4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Load Fail Package Productline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ID]"
+                      lineageId="Package\Load Fail Package Product\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ID]"
                       name="Copy of ID"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -3114,7 +3369,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -3125,22 +3380,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load Fail Package Productline\Data Conversion.Outputs[Data Conversion Error Output]"
+                  refId="Package\Load Fail Package Product\Data Conversion.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\Load Fail Package Productline\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Load Fail Package Product\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\Load Fail Package Product\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Fail Package Productline\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load Fail Package Product\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load Fail Package Product\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Fail Package Productline\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load Fail Package Product\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -3149,7 +3404,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Load Fail Package Productline\Derived Column"
+              refId="Package\Load Fail Package Product\Derived Column"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -3157,7 +3412,7 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Load Fail Package Productline\Derived Column.Inputs[Derived Column Input]"
+                  refId="Package\Load Fail Package Product\Derived Column.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <externalMetadataColumns />
@@ -3165,19 +3420,19 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Fail Package Productline\Derived Column.Outputs[Derived Column Output]"
+                  refId="Package\Load Fail Package Product\Derived Column.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Load Fail Package Productline\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Load Fail Package Product\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\Derived Column.Outputs[Derived Column Output].Columns[Package Name]"
+                      refId="Package\Load Fail Package Product\Derived Column.Outputs[Derived Column Output].Columns[Package Name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       length="12"
-                      lineageId="Package\Load Fail Package Productline\Derived Column.Outputs[Derived Column Output].Columns[Package Name]"
+                      lineageId="Package\Load Fail Package Product\Derived Column.Outputs[Derived Column Output].Columns[Package Name]"
                       name="Package Name"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -3198,23 +3453,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load Fail Package Productline\Derived Column.Outputs[Derived Column Error Output]"
+                  refId="Package\Load Fail Package Product\Derived Column.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Load Fail Package Productline\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Load Fail Package Product\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Load Fail Package Product\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Fail Package Productline\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load Fail Package Product\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load Fail Package Product\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Fail Package Productline\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load Fail Package Product\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -3223,7 +3478,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Load Fail Package Productline\Excel Destination"
+              refId="Package\Load Fail Package Product\Excel Destination"
               componentClassID="Microsoft.ExcelDestination"
               contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Excel Destination"
@@ -3237,7 +3492,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">'Failed Package$'</property>
+                  name="OpenRowset">Failure$</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -3271,88 +3526,90 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load Fail Package Productline\Excel Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 2]"
+                  refId="Package\Load Fail Package Product\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input]"
+                  refId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Excel Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input].Columns[ID]"
+                      refId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input].Columns[ID]"
                       cachedDataType="i4"
                       cachedName="ID"
-                      externalMetadataColumnId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ID]"
-                      lineageId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]" />
+                      externalMetadataColumnId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]" />
                     <inputColumn
-                      refId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input].Columns[NAME]"
+                      refId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input].Columns[NAME]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="NAME"
-                      externalMetadataColumnId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Name]"
-                      lineageId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].Columns[NAME]" />
+                      externalMetadataColumnId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[NAME]" />
                     <inputColumn
-                      refId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input].Columns[Package Name]"
+                      refId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input].Columns[Package Name]"
                       cachedDataType="wstr"
                       cachedLength="12"
                       cachedName="Package Name"
-                      externalMetadataColumnId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Package Name]"
-                      lineageId="Package\Load Fail Package Productline\Derived Column.Outputs[Derived Column Output].Columns[Package Name]" />
+                      externalMetadataColumnId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Package Name]"
+                      lineageId="Package\Load Fail Package Product\Derived Column.Outputs[Derived Column Output].Columns[Package Name]" />
+                    <inputColumn
+                      refId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input].Columns[CET FIX]"
+                      cachedDataType="date"
+                      cachedName="CET FIX"
+                      externalMetadataColumnId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Date Fail]"
+                      lineageId="Package\Load Fail Package Product\Data Conversion.Outputs[Data Conversion Output].Columns[CET FIX]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ID]"
-                      dataType="r8"
+                      refId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ID]"
+                      dataType="wstr"
+                      length="255"
                       name="ID" />
                     <externalMetadataColumn
-                      refId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Name]"
+                      refId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Name]"
                       dataType="wstr"
                       length="255"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Package Name]"
+                      refId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Package Name]"
                       dataType="wstr"
                       length="255"
                       name="Package Name" />
                     <externalMetadataColumn
-                      refId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Date Fail]"
+                      refId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Date Fail]"
                       dataType="wstr"
                       length="255"
                       name="Date Fail" />
-                    <externalMetadataColumn
-                      refId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[F5]"
-                      dataType="wstr"
-                      length="255"
-                      name="F5" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Fail Package Productline\Excel Destination.Outputs[Excel Destination Error Output]"
+                  refId="Package\Load Fail Package Product\Excel Destination.Outputs[Excel Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Excel Destination Error Output"
-                  synchronousInputId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input]">
+                  synchronousInputId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Load Fail Package Product\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Fail Package Productline\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load Fail Package Product\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load Fail Package Product\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Fail Package Productline\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load Fail Package Product\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -3361,7 +3618,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Load Fail Package Productline\OLE DB Source"
+              refId="Package\Load Fail Package Product\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
@@ -3410,7 +3667,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load Fail Package Productline\OLE DB Source.Connections[OleDbConnection]"
+                  refId="Package\Load Fail Package Product\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Localhost.DA_METADATA]"
                   connectionManagerRefId="Package.ConnectionManagers[Localhost.DA_METADATA]"
                   description="The OLE DB runtime connection used to access the database."
@@ -3418,86 +3675,86 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output]"
+                  refId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                      refId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
-                      lineageId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
+                      externalMetadataColumnId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID]"
                       name="ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].Columns[NAME]"
+                      refId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[NAME]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                      externalMetadataColumnId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
                       length="30"
-                      lineageId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].Columns[NAME]"
+                      lineageId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[NAME]"
                       name="NAME"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].Columns[CET]"
+                      refId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[CET]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CET]"
-                      lineageId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].Columns[CET]"
+                      externalMetadataColumnId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CET]"
+                      lineageId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[CET]"
                       name="CET"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      refId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
                       dataType="i4"
                       name="ID" />
                     <externalMetadataColumn
-                      refId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                      refId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
                       dataType="wstr"
                       length="30"
                       name="NAME" />
                     <externalMetadataColumn
-                      refId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CET]"
+                      refId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CET]"
                       dataType="dbTimeStamp"
                       name="CET" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      refId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
                       dataType="i4"
-                      lineageId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      lineageId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID]"
                       name="ID" />
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                      refId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NAME]"
                       dataType="wstr"
                       length="30"
-                      lineageId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                      lineageId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NAME]"
                       name="NAME" />
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CET]"
+                      refId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CET]"
                       dataType="dbTimeStamp"
-                      lineageId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CET]"
+                      lineageId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CET]"
                       name="CET" />
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -3508,20 +3765,20 @@
           </components>
           <paths>
             <path
-              refId="Package\Load Fail Package Productline.Paths[Data Conversion Output]"
-              endId="Package\Load Fail Package Productline\Excel Destination.Inputs[Excel Destination Input]"
+              refId="Package\Load Fail Package Product.Paths[Data Conversion Output]"
+              endId="Package\Load Fail Package Product\Excel Destination.Inputs[Excel Destination Input]"
               name="Data Conversion Output"
-              startId="Package\Load Fail Package Productline\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\Load Fail Package Product\Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Load Fail Package Productline.Paths[Derived Column Output]"
-              endId="Package\Load Fail Package Productline\Data Conversion.Inputs[Data Conversion Input]"
+              refId="Package\Load Fail Package Product.Paths[Derived Column Output]"
+              endId="Package\Load Fail Package Product\Data Conversion.Inputs[Data Conversion Input]"
               name="Derived Column Output"
-              startId="Package\Load Fail Package Productline\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\Load Fail Package Product\Derived Column.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Load Fail Package Productline.Paths[OLE DB Source Output]"
-              endId="Package\Load Fail Package Productline\Derived Column.Inputs[Derived Column Input]"
+              refId="Package\Load Fail Package Product.Paths[OLE DB Source Output]"
+              endId="Package\Load Fail Package Product\Derived Column.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
-              startId="Package\Load Fail Package Productline\OLE DB Source.Outputs[OLE DB Source Output]" />
+              startId="Package\Load Fail Package Product\OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3534,7 +3791,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET to Metadata City_Stage"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3550,7 +3807,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET to Metadata Product"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3566,7 +3823,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET to Metadata ProductLine"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3582,7 +3839,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET to Metadata Supermarket"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3598,7 +3855,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET to Metadata City (Failure)"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3630,7 +3887,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET to Metadata Product (Failure)"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3662,7 +3919,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET to Metadata ProductLine (Failure)"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3694,7 +3951,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET to Metadata Supermaket (Failure)"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3710,7 +3967,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET to Metadata Supermaket (Success)"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3726,7 +3983,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate Table City_Stage"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3742,7 +3999,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate Table ProductLine_Stage"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3758,7 +4015,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate Table Product_Stage"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3774,7 +4031,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate Table Supermarket_Stage"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3843,14 +4100,6 @@
       DTS:ObjectName="Constraint 12"
       DTS:To="Package\Set LSET to Metadata City (Failure)"
       DTS:Value="1" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 13]"
-      DTS:CreationName=""
-      DTS:DTSID="{9C7CDF6B-6121-4CF0-BB36-EA009C330871}"
-      DTS:From="Package\Set LSET to Metadata ProductLine (Failure)"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 13"
-      DTS:To="Package\Load Fail Package Productline" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
@@ -4044,7 +4293,7 @@
         <NodeLayout
           Size="156,62"
           Id="Package\Set LSET to Metadata Supermaket (Failure)"
-          TopLeft="512,384" />
+          TopLeft="519,386" />
         <NodeLayout
           Size="140,61"
           Id="Package\Set LSET to Metadata Supermaket (Success)"
@@ -4159,33 +4408,33 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="45,40"
+              EndConnector="52,42"
               Start="0,0"
-              End="45,32.5">
+              End="52,34.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.1576354679803" />
+                    End="0,12.9655172413793" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12.1576354679803"
-                    Point2="0,16.1576354679803"
-                    Point3="4,16.1576354679803" />
+                    Point1="0,12.9655172413793"
+                    Point2="0,16.9655172413793"
+                    Point3="4,16.9655172413793" />
                   <mssgle:LineSegment
-                    End="41,16.1576354679803" />
+                    End="48,16.9655172413793" />
                   <mssgle:CubicBezierSegment
-                    Point1="41,16.1576354679803"
-                    Point2="45,16.1576354679803"
-                    Point3="45,20.1576354679803" />
+                    Point1="48,16.9655172413793"
+                    Point2="52,16.9655172413793"
+                    Point3="52,20.9655172413793" />
                   <mssgle:LineSegment
-                    End="45,32.5" />
+                    End="52,34.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="7.25865234375,21.1576354679803,30.4826953125,9.7490234375"
+              BoundingBox="10.75865234375,21.9655172413793,30.4826953125,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4610,31 +4859,9 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="154,64"
-          Id="Package\Load Fail Package Productline"
-          TopLeft="845,517" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 13]"
-          TopLeft="920.75,456">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,61"
-              Start="0,0"
-              End="0,53.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="139,58"
+          Id="Package\Load Fail Package Product"
+          TopLeft="190.989898989899,509" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -4646,7 +4873,7 @@
         <NodeLayout
           Size="171,42"
           Id="Package\Import data from data source to City_Stage tabel\OLE DB Destination"
-          TopLeft="288,321" />
+          TopLeft="284,392" />
         <NodeLayout
           Size="159,42"
           Id="Package\Import data from data source to City_Stage tabel\Excel Destination"
@@ -4655,42 +4882,6 @@
           Size="139,42"
           Id="Package\Import data from data source to City_Stage tabel\Excel Source"
           TopLeft="443,182" />
-        <EdgeLayout
-          Id="Package\Import data from data source to City_Stage tabel.Paths[Excel Source Output]"
-          TopLeft="512.5,224">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-139,97"
-              Start="0,0"
-              End="-139,89.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,44.5"
-                    Point2="0,48.5"
-                    Point3="-4,48.5" />
-                  <mssgle:LineSegment
-                    End="-135,48.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-135,48.5"
-                    Point2="-139,48.5"
-                    Point3="-139,52.5" />
-                  <mssgle:LineSegment
-                    End="-139,89.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from data source to City_Stage tabel.Paths[Excel Source Error Output]"
           TopLeft="534.333333333333,224">
@@ -4725,6 +4916,66 @@
             <mssgm:EdgeLabel
               BoundingBox="21.2319466145833,46.9032716927454,115.7027734375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Import data from data source to City_Stage tabel\Data Conversion"
+          TopLeft="299,280" />
+        <EdgeLayout
+          Id="Package\Import data from data source to City_Stage tabel.Paths[Excel Source Output]"
+          TopLeft="490.666666666667,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-113.666666666667,56"
+              Start="0,0"
+              End="-113.666666666667,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7823613086771" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7823613086771"
+                    Point2="0,22.7823613086771"
+                    Point3="-4,22.7823613086771" />
+                  <mssgle:LineSegment
+                    End="-109.666666666667,22.7823613086771" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-109.666666666667,22.7823613086771"
+                    Point2="-113.666666666667,22.7823613086771"
+                    Point3="-113.666666666667,26.7823613086771" />
+                  <mssgle:LineSegment
+                    End="-113.666666666667,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from data source to City_Stage tabel.Paths[Data Conversion Output]"
+          TopLeft="373.25,322">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4773,37 +5024,61 @@
     design-time-name="Package\Import data from data source to Product_Stage tabel">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="171,42"
           Id="Package\Import data from data source to Product_Stage tabel\OLE DB Destination"
-          TopLeft="453,271" />
+          TopLeft="522,349" />
         <NodeLayout
           Size="139,42"
           Id="Package\Import data from data source to Product_Stage tabel\Excel Source"
-          TopLeft="473,116" />
+          TopLeft="540,120" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Import data from data source to Product_Stage tabel\Data Conversion"
+          TopLeft="524,239" />
         <EdgeLayout
           Id="Package\Import data from data source to Product_Stage tabel.Paths[Excel Source Output]"
-          TopLeft="540.5,158">
+          TopLeft="605.75,162">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,113"
+              EndConnector="0,77"
               Start="0,0"
-              End="0,105.5">
+              End="0,69.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,105.5" />
+                    End="0,69.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from data source to Product_Stage tabel.Paths[Data Conversion Output]"
+          TopLeft="604.75,281">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4853,28 +5128,6 @@
           Id="Package\Import data from data source to ProductLine_Stage tabel\Data Conversion"
           TopLeft="434,286" />
         <EdgeLayout
-          Id="Package\Import data from data source to ProductLine_Stage tabel.Paths[Data Conversion Output]"
-          TopLeft="510.75,328">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58"
-              Start="0,0"
-              End="0,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Import data from data source to ProductLine_Stage tabel.Paths[Excel Source Output]"
           TopLeft="510.25,224">
           <EdgeLayout.Curve>
@@ -4888,6 +5141,28 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from data source to ProductLine_Stage tabel.Paths[Data Conversion Output]"
+          TopLeft="510.75,328">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4929,38 +5204,38 @@
     design-time-name="Package\Import data from data source to Supermarket_Stage tabel">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="139,42"
           Id="Package\Import data from data source to Supermarket_Stage tabel\Excel Source"
-          TopLeft="457,177" />
+          TopLeft="313,54" />
         <NodeLayout
           Size="163,42"
           Id="Package\Import data from data source to Supermarket_Stage tabel\Derived Column 1"
-          TopLeft="247,457" />
+          TopLeft="103,334" />
         <NodeLayout
           Size="171,42"
           Id="Package\Import data from data source to Supermarket_Stage tabel\OLE DB Destination"
-          TopLeft="441,664" />
+          TopLeft="909,440" />
         <NodeLayout
           Size="163,42"
           Id="Package\Import data from data source to Supermarket_Stage tabel\Derived Column 2"
-          TopLeft="645,460" />
+          TopLeft="501,337" />
         <NodeLayout
           Size="155,42"
           Id="Package\Import data from data source to Supermarket_Stage tabel\Conditional Split"
-          TopLeft="442,366" />
+          TopLeft="298,243" />
         <NodeLayout
           Size="154,42"
           Id="Package\Import data from data source to Supermarket_Stage tabel\Derived Column"
-          TopLeft="442,286" />
+          TopLeft="298,163" />
         <NodeLayout
           Size="121,42"
           Id="Package\Import data from data source to Supermarket_Stage tabel\Union All"
-          TopLeft="463,561" />
+          TopLeft="319,438" />
         <EdgeLayout
           Id="Package\Import data from data source to Supermarket_Stage tabel.Paths[Case 1]"
-          TopLeft="482.75,408">
+          TopLeft="338.75,285">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4995,32 +5270,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import data from data source to Supermarket_Stage tabel.Paths[Union All Output 1]"
-          TopLeft="525,603">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,61"
-              Start="0,0"
-              End="0,53.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Import data from data source to Supermarket_Stage tabel.Paths[Split Gender]"
-          TopLeft="521.5,408">
+          TopLeft="377.5,285">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5044,7 +5295,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from data source to Supermarket_Stage tabel.Paths[Excel Source Output]"
-          TopLeft="522.75,219">
+          TopLeft="378.75,96">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5061,14 +5312,12 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from data source to Supermarket_Stage tabel.Paths[Derived Column Output2]"
-          TopLeft="328.5,499">
+          TopLeft="184.5,376">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5097,14 +5346,12 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from data source to Supermarket_Stage tabel.Paths[Derived Column Output1]"
-          TopLeft="726.5,502">
+          TopLeft="582.5,379">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5133,14 +5380,12 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from data source to Supermarket_Stage tabel.Paths[Derived Column Output]"
-          TopLeft="519.25,328">
+          TopLeft="375.25,205">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5157,14 +5402,12 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from data source to Supermarket_Stage tabel.Paths[Case 2]"
-          TopLeft="556.25,408">
+          TopLeft="412.25,285">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5198,6 +5441,54 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Import data from data source to Supermarket_Stage tabel\Data Conversion"
+          TopLeft="606,442" />
+        <EdgeLayout
+          Id="Package\Import data from data source to Supermarket_Stage tabel.Paths[Union All Output 1]"
+          TopLeft="440,461">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="166,0"
+              Start="0,0"
+              End="158.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="158.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data from data source to Supermarket_Stage tabel.Paths[Data Conversion Output]"
+          TopLeft="762,462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="147,0"
+              Start="0,0"
+              End="139.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="139.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -5215,20 +5506,28 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Load Fail Package Productline">
+    design-time-name="Package\Load Fail Package Product">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="150,42"
-          Id="Package\Load Fail Package Productline\OLE DB Source"
+          Id="Package\Load Fail Package Product\OLE DB Source"
           TopLeft="496,176" />
         <NodeLayout
+          Size="159,42"
+          Id="Package\Load Fail Package Product\Excel Destination"
+          TopLeft="493,446" />
+        <NodeLayout
           Size="154,42"
-          Id="Package\Load Fail Package Productline\Derived Column"
+          Id="Package\Load Fail Package Product\Derived Column"
           TopLeft="498,266" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Load Fail Package Product\Data Conversion"
+          TopLeft="497,359" />
         <EdgeLayout
-          Id="Package\Load Fail Package Productline.Paths[OLE DB Source Output]"
+          Id="Package\Load Fail Package Product.Paths[OLE DB Source Output]"
           TopLeft="573,218">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5249,12 +5548,8 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Load Fail Package Productline\Data Conversion"
-          TopLeft="497,359" />
         <EdgeLayout
-          Id="Package\Load Fail Package Productline.Paths[Derived Column Output]"
+          Id="Package\Load Fail Package Product.Paths[Derived Column Output]"
           TopLeft="575,308">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5275,24 +5570,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Load Fail Package Productline\Excel Destination"
-          TopLeft="489,441" />
         <EdgeLayout
-          Id="Package\Load Fail Package Productline.Paths[Data Conversion Output]"
-          TopLeft="571.75,401">
+          Id="Package\Load Fail Package Product.Paths[Data Conversion Output]"
+          TopLeft="573.75,401">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40"
+              EndConnector="0,45"
               Start="0,0"
-              End="0,32.5">
+              End="0,37.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,37.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5304,31 +5595,5 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Fail Package Productline\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Fail Package Productline\Excel Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

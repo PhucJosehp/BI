@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="NDSToDDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="167"
-  DTS:VersionGUID="{62F43FA0-9C4F-4E65-AE45-AF53EAEC367A}">
+  DTS:VersionBuild="168"
+  DTS:VersionGUID="{A31EB0B7-CA9F-4953-9B02-3657F75DDA8E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -8367,9 +8367,9 @@ WHERE        (createdDate &gt;= ? AND createdDate &lt; ?) OR
           Id="Package\FACT_INVOICE\Set LSET to metadata FACT_INVOICE (Failure)"
           TopLeft="259.5,237.5" />
         <NodeLayout
-          Size="305,42"
+          Size="198,61"
           Id="Package\FACT_INVOICE\Set LSET to metadata FACT_INVOICE (Success)"
-          TopLeft="5.5,236.5" />
+          TopLeft="17.5,231.5" />
         <EdgeLayout
           Id="Package\FACT_INVOICE.PrecedenceConstraints[Constraint 16]"
           TopLeft="204.5,122.5">
@@ -8398,26 +8398,26 @@ WHERE        (createdDate &gt;= ? AND createdDate &lt; ?) OR
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14.8333333333333,40"
+              EndConnector="-56.3333333333333,35"
               Start="0,0"
-              End="-14.8333333333333,32.5">
+              End="-56.3333333333333,27.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.1789375582479" />
+                    End="0,10.1565703634669" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12.1789375582479"
-                    Point2="0,16.1789375582479"
-                    Point3="-4,16.1789375582479" />
+                    Point1="0,10.1565703634669"
+                    Point2="0,14.1565703634669"
+                    Point3="-4,14.1565703634669" />
                   <mssgle:LineSegment
-                    End="-10.8333333333333,16.1789375582479" />
+                    End="-52.3333333333333,14.1565703634669" />
                   <mssgle:CubicBezierSegment
-                    Point1="-10.8333333333333,16.1789375582479"
-                    Point2="-14.8333333333333,16.1789375582479"
-                    Point3="-14.8333333333333,20.1789375582479" />
+                    Point1="-52.3333333333333,14.1565703634669"
+                    Point2="-56.3333333333333,14.1565703634669"
+                    Point3="-56.3333333333333,18.1565703634669" />
                   <mssgle:LineSegment
-                    End="-14.8333333333333,32.5" />
+                    End="-56.3333333333333,27.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8487,8 +8487,8 @@ WHERE        (createdDate &gt;= ? AND createdDate &lt; ?) OR
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="424,356"
-          Size="424,398"
+          PanelSize="424,317"
+          Size="424,360"
           Id="Package\FACT_INVOICE"
           TopLeft="194,464" />
         <EdgeLayout
@@ -8571,18 +8571,30 @@ WHERE        (createdDate &gt;= ? AND createdDate &lt; ?) OR
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="763,654.25">
+          TopLeft="763,656">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-145,0"
+              EndConnector="-145,-12"
               Start="0,0"
-              End="-137.5,0">
+              End="-137.5,-12">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-137.5,0" />
+                    End="-68.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-68.5,0"
+                    Point2="-72.5,0"
+                    Point3="-72.5,-4" />
+                  <mssgle:LineSegment
+                    End="-72.5,-8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-72.5,-8"
+                    Point2="-72.5,-12"
+                    Point3="-76.5,-12" />
+                  <mssgle:LineSegment
+                    End="-137.5,-12" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9284,13 +9296,69 @@ WHERE        (createdDate &gt;= ? AND createdDate &lt; ?) OR
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="171,42"
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\OLE DB Destination"
+          TopLeft="529,476" />
+        <NodeLayout
           Size="150,42"
           Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\OLE DB Source"
           TopLeft="261,59" />
         <NodeLayout
+          Size="138,42"
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Date"
+          TopLeft="560,182" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\OLE DB Source 1"
+          TopLeft="262,177" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Product"
+          TopLeft="904,67" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\Sort"
+          TopLeft="584,294" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Customer"
+          TopLeft="906,190" />
+        <NodeLayout
+          Size="107,42"
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\Sort 1"
+          TopLeft="288,297" />
+        <NodeLayout
           Size="149,42"
           Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Branch"
           TopLeft="540,64" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\Merge Join"
+          TopLeft="543,390" />
+        <EdgeLayout
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[OLE DB Source Output1]"
+          TopLeft="341.5,219">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78"
+              Start="0,0"
+              End="0,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[OLE DB Source Output]"
           TopLeft="411,82.5">
@@ -9310,69 +9378,59 @@ WHERE        (createdDate &gt;= ? AND createdDate &lt; ?) OR
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152,42"
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Product"
-          TopLeft="904,67" />
         <EdgeLayout
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[Lookup Match Output]"
-          TopLeft="689,86.5">
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[Merge Join Output]"
+          TopLeft="611.25,432">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="215,0"
+              EndConnector="0,44"
               Start="0,0"
-              End="207.5,0">
+              End="0,36.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="207.5,0" />
+                    End="0,36.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="55.55861328125,5,96.3827734375,11.609375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="161,42"
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Customer"
-          TopLeft="906,190" />
         <EdgeLayout
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[Lookup Match Output1]"
-          TopLeft="983.25,109">
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[Lookup Match Output3]"
+          TopLeft="631,224">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,81"
+              EndConnector="0,70"
               Start="0,0"
-              End="0,73.5">
+              End="0,62.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,73.5" />
+                    End="0,62.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,30.9453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,25.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="138,42"
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Date"
-          TopLeft="560,182" />
         <EdgeLayout
           Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[Lookup Match Output2]"
           TopLeft="906,211">
@@ -9409,68 +9467,78 @@ WHERE        (createdDate &gt;= ? AND createdDate &lt; ?) OR
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="98,42"
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\Sort"
-          TopLeft="584,294" />
         <EdgeLayout
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[Lookup Match Output3]"
-          TopLeft="631,224">
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[Lookup Match Output1]"
+          TopLeft="983.25,109">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,70"
+              EndConnector="0,81"
               Start="0,0"
-              End="0,62.5">
+              End="0,73.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62.5" />
+                    End="0,73.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,25.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,30.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="159,42"
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\OLE DB Source 1"
-          TopLeft="262,177" />
-        <NodeLayout
-          Size="107,42"
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\Sort 1"
-          TopLeft="288,297" />
         <EdgeLayout
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[OLE DB Source Output1]"
-          TopLeft="341.5,219">
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[Lookup Match Output]"
+          TopLeft="689,86.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,78"
+              EndConnector="215,0"
               Start="0,0"
-              End="0,70.5">
+              End="207.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70.5" />
+                    End="207.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="55.55861328125,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="130,42"
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\Merge Join"
-          TopLeft="543,390" />
+        <EdgeLayout
+          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[Sort Output1]"
+          TopLeft="630.666666666667,336">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[Sort Output]"
           TopLeft="341.5,339">
@@ -9502,60 +9570,27 @@ WHERE        (createdDate &gt;= ? AND createdDate &lt; ?) OR
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[Sort Output1]"
-          TopLeft="630.666666666667,336">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54"
-              Start="0,0"
-              End="0,46.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="171,42"
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE\OLE DB Destination"
-          TopLeft="529,476" />
-        <EdgeLayout
-          Id="Package\FACT_INVOICE\Load data to FACT_INVOICE.Paths[Merge Join Output]"
-          TopLeft="611.25,432">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44"
-              Start="0,0"
-              End="0,36.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_INVOICE\Load data to FACT_INVOICE\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\FACT_INVOICE\Load data to FACT_INVOICE\OLE DB Source">
     <Properties>
@@ -9570,81 +9605,12 @@ WHERE        (createdDate &gt;= ? AND createdDate &lt; ?) OR
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Branch">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DIM_BRANCH]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Product">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DIM_PRODUCT]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Customer">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DIM_CUSTOMER]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Date">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -9654,7 +9620,7 @@ WHERE        (createdDate &gt;= ? AND createdDate &lt; ?) OR
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9675,15 +9641,71 @@ WHERE        (createdDate &gt;= ? AND createdDate &lt; ?) OR
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\FACT_INVOICE\Load data to FACT_INVOICE\OLE DB Destination">
+    design-time-name="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Product">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DIM_PRODUCT]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Customer">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DIM_CUSTOMER]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_INVOICE\Load data to FACT_INVOICE\Lookup Branch">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DIM_BRANCH]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
