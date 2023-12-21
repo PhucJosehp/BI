@@ -23,6 +23,7 @@ CREATE TABLE SupermarketSale_NDS(
 	ProductID		NVARCHAR(255),
 	Tax				FLOAT(3),
 	Total			FLOAT(3),
+	Quantity		INT,
 	Day				INT,
 	Month			INT,
 	Year			INT,
@@ -64,7 +65,6 @@ CREATE TABLE Customer_NDS(
 	SOR				INT,
 	CustomerType	NVARCHAR(255),
 	Gender			NVARCHAR(255),
-	Quantity		Int,
 	Payment			NVARCHAR(255),
 	GrossIncome		FLOAT(4),
 	createdDate		Datetime,
@@ -153,7 +153,7 @@ VALUES ('Excel')
 SELECT * FROM City_NDS --JOIN SOURCETABLE ON SOR = ID
 SELECT * FROM ProductLine_NDS
 SELECT * FROM Product_NDS 
-SELECT * FROM SupermarketSale_NDS Where [Year] = 2019
+SELECT * FROM SupermarketSale_NDS --Where [Year] = 2019
 
 --update SupermarketSale_NDS set time = '11:36:00.0000000' where day = 1 and Month = 1 and year = 2019 and time = '10:39:00.0000000'
 

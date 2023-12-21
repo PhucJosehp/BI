@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="141"
-  DTS:VersionGUID="{639A7E64-68DB-4C06-9229-6196495A5C54}">
+  DTS:VersionBuild="155"
+  DTS:VersionGUID="{2D58005C-5E6A-431B-BF74-6A52F52E7FE4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1172,7 +1172,7 @@ where [refTable].[Branch_NK] = ? and [refTable].[City] = ? and [refTable].[SOR] 
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[Customer_NDS]) [refTable]
-where [refTable].[CustomerID_NK] = ? and [refTable].[SOR] = ?</property>
+where [refTable].[CustomerID_NK] = ? and [refTable].[CustomerType] = ? and [refTable].[Gender] = ? and [refTable].[Payment] = ? and [refTable].[SOR] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -1203,12 +1203,12 @@ where [refTable].[CustomerID_NK] = ? and [refTable].[SOR] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CustomerID_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CustomerID_NK" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SOR" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CustomerType" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Gender" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quantity" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Payment" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GrossIncome" dataType="DT_R4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="createdDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="updateDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CustomerID_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CustomerID_NK" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SOR" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CustomerType" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Gender" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Payment" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GrossIncome" dataType="DT_R4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="createdDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="updateDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Import data from Stage to NDS Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]};#{Package\Import data from Stage to NDS Customer\Derived Column.Outputs[Derived Column Output].Columns[SOR]};</property>
+                  name="ParameterMap">#{Package\Import data from Stage to NDS Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]};#{Package\Import data from Stage to NDS Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerType]};#{Package\Import data from Stage to NDS Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]};#{Package\Import data from Stage to NDS Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Payment]};#{Package\Import data from Stage to NDS Customer\Derived Column.Outputs[Derived Column Output].Columns[SOR]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1242,6 +1242,57 @@ where [refTable].[CustomerID_NK] = ? and [refTable].[SOR] = ?</property>
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">CustomerID_NK</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS Customer\Lookup.Inputs[Lookup Input].Columns[CustomerType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CustomerType"
+                      lineageId="Package\Import data from Stage to NDS Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerType]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CustomerType</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS Customer\Lookup.Inputs[Lookup Input].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Gender"
+                      lineageId="Package\Import data from Stage to NDS Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Gender</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS Customer\Lookup.Inputs[Lookup Input].Columns[Payment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Payment"
+                      lineageId="Package\Import data from Stage to NDS Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Payment]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Payment</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -1330,7 +1381,6 @@ where [refTable].[CustomerID_NK] = ? and [refTable].[SOR] = ?</property>
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE Customer_NDS
 Set CustomerType = ?,
 	Gender = ? ,
-	Quantity = ?,
 	Payment = ?,
 	GrossIncome = ?,
 	updateDate = ?
@@ -1395,13 +1445,6 @@ Where CustomerID_NK = ?</property>
                       cachedName="updatedDate"
                       externalMetadataColumnId="Package\Import data from Stage to NDS Customer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       lineageId="Package\Import data from Stage to NDS Customer\updatedDate.Outputs[Derived Column Output].Columns[updatedDate]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS Customer\OLE DB Command.Inputs[OLE DB Command Input].Columns[CustomerID]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CustomerID"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS Customer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      lineageId="Package\Import data from Stage to NDS Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1431,7 +1474,8 @@ Where CustomerID_NK = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS Customer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="255"
                       name="Param_2">
                       <properties>
                         <property
@@ -1442,8 +1486,7 @@ Where CustomerID_NK = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS Customer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r4"
                       name="Param_3">
                       <properties>
                         <property
@@ -1454,7 +1497,7 @@ Where CustomerID_NK = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS Customer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      dataType="r4"
+                      dataType="dbTimeStamp"
                       name="Param_4">
                       <properties>
                         <property
@@ -1465,20 +1508,9 @@ Where CustomerID_NK = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS Customer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      dataType="dbTimeStamp"
-                      name="Param_5">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS Customer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       dataType="wstr"
                       length="255"
-                      name="Param_6">
+                      name="Param_5">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1608,12 +1640,6 @@ Where CustomerID_NK = ?</property>
                       externalMetadataColumnId="Package\Import data from Stage to NDS Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
                       lineageId="Package\Import data from Stage to NDS Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]" />
                     <inputColumn
-                      refId="Package\Import data from Stage to NDS Customer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quantity]"
-                      cachedDataType="i4"
-                      cachedName="Quantity"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
-                      lineageId="Package\Import data from Stage to NDS Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]" />
-                    <inputColumn
                       refId="Package\Import data from Stage to NDS Customer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Payment]"
                       cachedDataType="wstr"
                       cachedLength="255"
@@ -1677,10 +1703,6 @@ Where CustomerID_NK = ?</property>
                       dataType="wstr"
                       length="255"
                       name="Gender" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
-                      dataType="i4"
-                      name="Quantity" />
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Payment]"
                       dataType="wstr"
@@ -4025,83 +4047,6 @@ WHERE ProductLineID_NK = (?)</property>
               </outputs>
             </component>
             <component
-              refId="Package\Import data from Stage to NDS SPMK\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Import data from Stage to NDS SPMK\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Data Conversion.Inputs[Data Conversion Input].Columns[Time]"
-                      cachedDataType="dbTime2"
-                      cachedName="Time"
-                      cachedScale="7"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Time]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Import data from Stage to NDS SPMK\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Import data from Stage to NDS SPMK\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Time]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\Import data from Stage to NDS SPMK\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Time]"
-                      name="Copy of Time"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Time]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Import data from Stage to NDS SPMK\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Import data from Stage to NDS SPMK\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Import data from Stage to NDS SPMK\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Import data from Stage to NDS SPMK\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Import data from Stage to NDS SPMK\Derived Column"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -4167,263 +4112,6 @@ WHERE ProductLineID_NK = (?)</property>
                       refId="Package\Import data from Stage to NDS SPMK\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Import data from Stage to NDS SPMK\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Import data from Stage to NDS SPMK\Excel Destination"
-              componentClassID="Microsoft.ExcelDestination"
-              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Excel Destination"
-              name="Excel Destination"
-              usesDispositions="true">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">supermarket_sales$</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Excel Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[Branch]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Branch"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Branch]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Branch]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[Gender]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Gender"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Gender]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[ProductID]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="ProductID"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ProductID]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[Quantity]"
-                      cachedDataType="i4"
-                      cachedName="Quantity"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Quantity]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[Total]"
-                      cachedDataType="r4"
-                      cachedName="Total"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Total]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[Payment]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Payment"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Payment]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Payment]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[Cogs]"
-                      cachedDataType="r4"
-                      cachedName="Cogs"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[cogs]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cogs]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[Rating]"
-                      cachedDataType="r4"
-                      cachedName="Rating"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Rating]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Rating]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[Date]"
-                      cachedDataType="dbDate"
-                      cachedName="Date"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Date]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[Tax]"
-                      cachedDataType="r4"
-                      cachedName="Tax"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Tax 5%]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tax]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[InvoiceID]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="InvoiceID"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Invoice ID]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceID]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[CustomerType]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CustomerType"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Customer type]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerType]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[GMP]"
-                      cachedDataType="r4"
-                      cachedName="GMP"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[gross margin percentage]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[GMP]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[GrossIncome]"
-                      cachedDataType="r4"
-                      cachedName="GrossIncome"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[gross income]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[GrossIncome]" />
-                    <inputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Time]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Copy of Time"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Time]"
-                      lineageId="Package\Import data from Stage to NDS SPMK\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Time]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Invoice ID]"
-                      dataType="wstr"
-                      length="255"
-                      name="Invoice ID" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Branch]"
-                      dataType="wstr"
-                      length="255"
-                      name="Branch" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Customer type]"
-                      dataType="wstr"
-                      length="255"
-                      name="Customer type" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Gender]"
-                      dataType="wstr"
-                      length="255"
-                      name="Gender" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ProductID]"
-                      dataType="wstr"
-                      length="255"
-                      name="ProductID" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Quantity]"
-                      dataType="r8"
-                      name="Quantity" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Tax 5%]"
-                      dataType="r8"
-                      name="Tax 5%" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Total]"
-                      dataType="r8"
-                      name="Total" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Date]"
-                      dataType="date"
-                      name="Date" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Time]"
-                      dataType="date"
-                      name="Time" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Payment]"
-                      dataType="wstr"
-                      length="255"
-                      name="Payment" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[cogs]"
-                      dataType="r8"
-                      name="cogs" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[gross margin percentage]"
-                      dataType="r8"
-                      name="gross margin percentage" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[gross income]"
-                      dataType="r8"
-                      name="gross income" />
-                    <externalMetadataColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Rating]"
-                      dataType="r8"
-                      name="Rating" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Outputs[Excel Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Excel Destination Error Output"
-                  synchronousInputId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Import data from Stage to NDS SPMK\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Import data from Stage to NDS SPMK\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Import data from Stage to NDS SPMK\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -4812,6 +4500,7 @@ Set Branch = ?,
 	Cogs = ?,
 	GMP = ?,
 	Rating = ?,
+                Quantity = ?,
 	updateDate = ?
 Where InvoiceID_NK = ?</property>
                 <property
@@ -4905,17 +4594,23 @@ Where InvoiceID_NK = ?</property>
                       externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
                       lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Rating]" />
                     <inputColumn
+                      refId="Package\Import data from Stage to NDS SPMK\OLE DB Command.Inputs[OLE DB Command Input].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                    <inputColumn
                       refId="Package\Import data from Stage to NDS SPMK\OLE DB Command.Inputs[OLE DB Command Input].Columns[updatedDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="updatedDate"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
                       lineageId="Package\Import data from Stage to NDS SPMK\updatedDate  Convert Date.Outputs[Derived Column Output].Columns[updatedDate]" />
                     <inputColumn
                       refId="Package\Import data from Stage to NDS SPMK\OLE DB Command.Inputs[OLE DB Command Input].Columns[InvoiceID]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="InvoiceID"
-                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
                       lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceID]" />
                   </inputColumns>
                   <externalMetadataColumns
@@ -5046,7 +4741,7 @@ Where InvoiceID_NK = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS SPMK\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
-                      dataType="dbTimeStamp"
+                      dataType="i4"
                       name="Param_11">
                       <properties>
                         <property
@@ -5057,9 +4752,20 @@ Where InvoiceID_NK = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Import data from Stage to NDS SPMK\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      dataType="dbTimeStamp"
+                      name="Param_12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS SPMK\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
                       dataType="wstr"
                       length="255"
-                      name="Param_12">
+                      name="Param_13">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -5275,6 +4981,12 @@ Where InvoiceID_NK = ?</property>
                       cachedName="CustomerID"
                       externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
                       lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Import data from Stage to NDS SPMK\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\Import data from Stage to NDS SPMK\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\Import data from Stage to NDS SPMK\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5351,6 +5063,10 @@ Where InvoiceID_NK = ?</property>
                       dataType="wstr"
                       length="255"
                       name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Import data from Stage to NDS SPMK\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -5950,11 +5666,6 @@ Where InvoiceID_NK = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Import data from Stage to NDS SPMK.Paths[Data Conversion Output]"
-              endId="Package\Import data from Stage to NDS SPMK\Excel Destination.Inputs[Excel Destination Input]"
-              name="Data Conversion Output"
-              startId="Package\Import data from Stage to NDS SPMK\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
               refId="Package\Import data from Stage to NDS SPMK.Paths[Derived Column Output]"
               endId="Package\Import data from Stage to NDS SPMK\Lookup.Inputs[Lookup Input]"
               name="Derived Column Output"
@@ -5984,11 +5695,6 @@ Where InvoiceID_NK = ?</property>
               endId="Package\Import data from Stage to NDS SPMK\createdDate updatedDate  Convert Date.Inputs[Derived Column Input]"
               name="Lookup No Match Output"
               startId="Package\Import data from Stage to NDS SPMK\Lookup 1.Outputs[Lookup No Match Output]" />
-            <path
-              refId="Package\Import data from Stage to NDS SPMK.Paths[Lookup No Match Output1]"
-              endId="Package\Import data from Stage to NDS SPMK\Data Conversion.Inputs[Data Conversion Input]"
-              name="Lookup No Match Output"
-              startId="Package\Import data from Stage to NDS SPMK\Lookup.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Import data from Stage to NDS SPMK.Paths[OLE DB Source Output]"
               endId="Package\Import data from Stage to NDS SPMK\Derived Column.Inputs[Derived Column Input]"
@@ -6023,7 +5729,8 @@ Where InvoiceID_NK = ?</property>
       DTS:From="Package\Import data from Stage to NDS Product"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
-      DTS:To="Package\Import data from Stage to NDS Customer" />
+      DTS:To="Package\Import data from Stage to NDS Customer"
+      DTS:Value="2" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
@@ -6031,7 +5738,8 @@ Where InvoiceID_NK = ?</property>
       DTS:From="Package\Import data from Stage to NDS Customer"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
-      DTS:To="Package\Import data from Stage to NDS SPMK" />
+      DTS:To="Package\Import data from Stage to NDS SPMK"
+      DTS:Value="2" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -6044,19 +5752,19 @@ Where InvoiceID_NK = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="249,42"
           Id="Package\Import Data from Stage to NDS City"
           TopLeft="448,151" />
         <NodeLayout
-          Size="275,42"
+          Size="275,45"
           Id="Package\Import data from Stage to NDS Customer"
-          TopLeft="444,334" />
+          TopLeft="433,351" />
         <NodeLayout
           Size="266,42"
           Id="Package\Import data from Stage to NDS Product"
-          TopLeft="441,247" />
+          TopLeft="438,257" />
         <NodeLayout
           Size="286,42"
           Id="Package\Import Data from Stage to NDS ProductLine"
@@ -6064,7 +5772,7 @@ Where InvoiceID_NK = ?</property>
         <NodeLayout
           Size="256,42"
           Id="Package\Import data from Stage to NDS SPMK"
-          TopLeft="448,409" />
+          TopLeft="448,442" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="572.75,100">
@@ -6089,18 +5797,18 @@ Where InvoiceID_NK = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="573.25,193">
+          TopLeft="571.75,193">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,54"
+              EndConnector="0,64"
               Start="0,0"
-              End="0,46.5">
+              End="0,56.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.5" />
+                    End="0,56.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6111,46 +5819,50 @@ Where InvoiceID_NK = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="577.75,289">
+          TopLeft="570.75,299">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45"
+              EndConnector="0,52"
               Start="0,0"
-              End="0,37.5">
+              End="0,44.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.5" />
+                    End="0,44.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,16.4453125,50.60890625,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="578.75,376">
+          TopLeft="573.25,396">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33"
+              EndConnector="0,46"
               Start="0,0"
-              End="0,25.5">
+              End="0,38.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.5" />
+                    End="0,38.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,13.4453125,50.60890625,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6180,7 +5892,7 @@ Where InvoiceID_NK = ?</property>
         <NodeLayout
           Size="171,42"
           Id="Package\Import Data from Stage to NDS City\OLE DB Destination"
-          TopLeft="690,543" />
+          TopLeft="699,546" />
         <NodeLayout
           Size="121,42"
           Id="Package\Import Data from Stage to NDS City\Add SOR"
@@ -6208,9 +5920,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6304,33 +6014,29 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import Data from Stage to NDS City.Paths[Derived Column Output1]"
-          TopLeft="777,503">
+          TopLeft="781.5,503">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40"
+              EndConnector="0,43"
               Start="0,0"
-              End="0,32.5">
+              End="0,35.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,35.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6352,9 +6058,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6461,9 +6165,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6557,9 +6259,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6581,9 +6281,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6605,9 +6303,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6640,7 +6336,7 @@ Where InvoiceID_NK = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -6650,7 +6346,7 @@ Where InvoiceID_NK = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6709,9 +6405,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6805,9 +6499,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6829,9 +6521,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6853,9 +6543,7 @@ Where InvoiceID_NK = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7167,47 +6855,39 @@ Where InvoiceID_NK = ?</property>
     design-time-name="Package\Import data from Stage to NDS SPMK">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="122,42"
-          Id="Package\Import data from Stage to NDS SPMK\Lookup 1"
-          TopLeft="455,403" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Import data from Stage to NDS SPMK\OLE DB Source"
-          TopLeft="441,19" />
-        <NodeLayout
-          Size="149,42"
-          Id="Package\Import data from Stage to NDS SPMK\updatedDate  Convert Date"
-          TopLeft="723,403" />
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Import data from Stage to NDS SPMK\OLE DB Command"
-          TopLeft="713,504" />
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Import data from Stage to NDS SPMK\Excel Destination"
-          TopLeft="712,313" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Import data from Stage to NDS SPMK\OLE DB Destination"
-          TopLeft="109,506" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Import data from Stage to NDS SPMK\Data Conversion"
-          TopLeft="716,227" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="113,42"
           Id="Package\Import data from Stage to NDS SPMK\Lookup"
           TopLeft="459,226" />
         <NodeLayout
-          Size="161,60"
-          Id="Package\Import data from Stage to NDS SPMK\createdDate updatedDate  Convert Date"
-          TopLeft="119,390" />
+          Size="149,42"
+          Id="Package\Import data from Stage to NDS SPMK\updatedDate  Convert Date"
+          TopLeft="721,333" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Import data from Stage to NDS SPMK\Lookup 1"
+          TopLeft="453,333" />
         <NodeLayout
           Size="154,42"
           Id="Package\Import data from Stage to NDS SPMK\Derived Column"
           TopLeft="442,125" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Import data from Stage to NDS SPMK\OLE DB Command"
+          TopLeft="711,434" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Import data from Stage to NDS SPMK\OLE DB Destination"
+          TopLeft="107,436" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Import data from Stage to NDS SPMK\OLE DB Source"
+          TopLeft="441,19" />
+        <NodeLayout
+          Size="161,60"
+          Id="Package\Import data from Stage to NDS SPMK\createdDate updatedDate  Convert Date"
+          TopLeft="117,320" />
         <EdgeLayout
           Id="Package\Import data from Stage to NDS SPMK.Paths[OLE DB Source Output]"
           TopLeft="517.5,61">
@@ -7231,32 +6911,8 @@ Where InvoiceID_NK = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import data from Stage to NDS SPMK.Paths[Lookup No Match Output1]"
-          TopLeft="572,247.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="144,0"
-              Start="0,0"
-              End="136.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="136.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="12.44361328125,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Import data from Stage to NDS SPMK.Paths[Lookup No Match Output]"
-          TopLeft="455,422">
+          TopLeft="453,352">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7280,7 +6936,7 @@ Where InvoiceID_NK = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS SPMK.Paths[Lookup Match Output1]"
-          TopLeft="577,424">
+          TopLeft="575,354">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7304,31 +6960,31 @@ Where InvoiceID_NK = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS SPMK.Paths[Lookup Match Output]"
-          TopLeft="515.75,268">
+          TopLeft="514.75,268">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,135"
+              EndConnector="0,65"
               Start="0,0"
-              End="0,127.5">
+              End="0,57.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,127.5" />
+                    End="0,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,57.9453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,22.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS SPMK.Paths[Derived Column Output2]"
-          TopLeft="796.75,445">
+          TopLeft="794.75,375">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7350,7 +7006,7 @@ Where InvoiceID_NK = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import data from Stage to NDS SPMK.Paths[Derived Column Output1]"
-          TopLeft="197,450">
+          TopLeft="195,380">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7392,31 +7048,32 @@ Where InvoiceID_NK = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import data from Stage to NDS SPMK.Paths[Data Conversion Output]"
-          TopLeft="792.75,269">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44"
-              Start="0,0"
-              End="0,36.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import data from Stage to NDS SPMK\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Import data from Stage to NDS SPMK\Lookup 1">
     <Properties>
@@ -7441,32 +7098,6 @@ Where InvoiceID_NK = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Import data from Stage to NDS SPMK\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import data from Stage to NDS SPMK\Excel Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Import data from Stage to NDS SPMK\OLE DB Destination">
     <Properties>
       <Property>
@@ -7480,25 +7111,15 @@ Where InvoiceID_NK = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Import data from Stage to NDS SPMK\Lookup">
+    design-time-name="Package\Import data from Stage to NDS SPMK\OLE DB Source">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
+        <Name>DataSourceViewID</Name>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
